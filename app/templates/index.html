@@ -1,0 +1,77 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+<h1>Personal Blog</h1>
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Dancing Script');
+
+          ul {
+          font-family: 'Dancing Script';
+          }
+          body{
+              font-family: 'Dancing Script'
+          }
+          .image {
+    position:absolute;
+    width:100%; 
+    height:100%; 
+    background:green;
+    background-image:url('https://static.tumblr.com/64e460488e1d97be95ebfb7c3793751e/ehtrva7/isMoaessa/tumblr_static_tumblr_static__640.jpg');
+    background-size:cover;
+}
+.new{
+    height: 100%;
+}
+    </style>
+
+    <title> {{ title }} </title>
+    <div class='image'>
+        <div class="centered">
+            <h1 class="name"> <strong>PERSONAL BLOG</strong></h1>
+        </div>
+
+    <div class="new" >
+        <h2 class="post-create">
+            <a href="/post/new">
+                Click to create a new blog post
+
+            </a>
+        </h2>
+    </div>
+  </hr>
+    <div class="container" class="list">
+
+        <div class="row">
+
+            <div class="col-md-12 col-lg-12">
+                <p class="pitch-header" id="1">
+                    List of blog posts
+                </p>
+            </div>
+
+
+
+        </div>
+      </div>
+        <hr>
+
+    <p>  {{ macro.displayPostList(posts) }}</p>
+      <div class="container" class="comments" id="2">
+              <div class="row">
+                  <div class="col-sm-3">
+                      <p> Comments</p>
+                      {{macro.displayCommentList(comments)}}
+          </div>
+  </div>
+</div>
+
+
+</div>
+
+
+
+{% endblock %}
